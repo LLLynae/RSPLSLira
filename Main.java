@@ -1,47 +1,96 @@
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import java.util.Random;
+
 
 public class Main {
     boolean winCheck;
 
-    int player;
+    int playerOne;
     int randomAI;
-    int userChoice;
     String win;
-    Random random = new Random();
-    Scanner scanner = new Scanner(System.in);
+    static Random random = new Random();
+    static Scanner scanner = new Scanner(System.in);
 
 
-     public void main(String[] args) {
+     
+    public static void main(String[] args) {
         
-        System.out.println("Hello! Please choose rock, paper, scissors, lizard, or Spock.");
-        userChoice = scanner.nextInt();
-        System.out.println("Player Two turn!");
+        String userChoice = JOptionPane.showInputDialog("Welcome! Please make your choice :)");
+        int randomAI = random.nextInt(5 - 1) +1;
+   
         random.nextInt();
 
     }
 
+    //1 is paper
+    //2 is scissors
+    //3 is rock
+    //4 is spock
+    //5 is lizard
 
-    public boolean winCheck (int rock, int paper, int spock) {
-        if (userChoice == rock){
-            if(randomAI == paper) {
-
-                return winCheck = true;
-                
+    public boolean winCheck (String userChoice) {
+        if (userChoice.equals("rock")){
+            if(randomAI == 1) {
+                return true;
             }
-            else if (randomAI == spock) {
-
-                return winCheck = true;
+            else if (randomAI == 4) {
+                 return true;
             }
             else {
-
-                return winCheck = false;
-
+                return false;
             }
+         }
 
+         else if(userChoice.equals("paper")) {
+            if(randomAI == 2){
+                return true;
+            }
+            else if(randomAI == 5) {
+                return true;
+            }
+            else {
+                return false;
+            }
+         }
+
+         else if(userChoice.equals("scissors")) {
+            if(randomAI == 3){
+                return true;
+            }
+            else if(randomAI == 4){
+                return true;
+            }
+            else{
+                return false;
+            }
+         }
+
+         else if(userChoice.equals("lizard")){
+            if(randomAI == 2){
+                return true;
+            }
+            else if(randomAI == 3) {
+                return true;
+            }
+            else{
+                return false;
+            }
+         }
+
+         else if(userChoice.equals("spock")){
+            if(randomAI == 1){
+                return true;
+            }
+            else if(randomAI == 5) {
+                return true;
+            }
+            else{
+                return false;
+            }
          }
         
-        return winCheck;
+        return false;
 
         }
    
